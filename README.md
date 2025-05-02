@@ -1,4 +1,4 @@
-# This is my scratchpad for experimenting and learning with my brother.
+# This is my new repository for experimenting and learning.
 
 ### Things to consider:  when working with data (files vs. databases etc.)
 # Acid  

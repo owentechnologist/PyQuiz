@@ -33,19 +33,19 @@ Then confirm with Y when prompted.
 
 
 
-3. Python will utilize this requirements.txt in the project:
+## Python will utilize this requirements.txt in the project:
 
 ```
 psycopg[binary]
 
 ```
 
-4. Install the libraries: [only necesary to do this one time per environment]
+3. Install the libraries: [only necesary to do this one time per environment]
 
 ```
 pip3 install -r requirements.txt
 ```
-5. To start the program using a local file, do the following:
+4. To start the program using a local file, do the following:
 ```
 python Quiz.py <name of file> 
 ```

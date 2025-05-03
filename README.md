@@ -59,7 +59,7 @@ python Quiz.py Geography1.tsv
 Using the following as an example, 
 generate a sample of 20 questions regarding 
 "global geography" 
-without any numeric reference at the beginning of each line and providing one word answers, T, F.
+without any numeric reference at the beginning of each line and providing one word answers, T, or F.
 
 Most terms in Ballet are from the ______ language (fill in the blank)~french 
 Alton Brown has good recipes (T or F)~T 

@@ -4,6 +4,7 @@
 ## Python-preparation Steps for running the program on your machine:
 
 
+
 1. Create a virtual environment:
 
 ```
@@ -44,21 +45,9 @@ psycopg[binary]
 ```
 pip3 install -r requirements.txt
 ```
+5. To start the program using a local file, do the following:
+python Quiz.py <name of file> 
+```
+python Quiz.py Geography1.tsv
+```
 
-#import psycopg
-
-def connect_to_db():
-    try:
-        # Adjust these parameters for your setup
-        conn = psycopg.connect(
-            dbname="your_database",
-            user="your_username",
-            password="your_password",
-            host="localhost",
-            port=5432
-        )
-        print("✅ Connection successful")
-        return conn
-    except Exception as e:
-        print("❌ Connection failed:", e)
-        return None

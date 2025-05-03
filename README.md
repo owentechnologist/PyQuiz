@@ -56,10 +56,10 @@ python Quiz.py Geography1.tsv
 
 ## Hint: If you want to create your own Quiz, you can ask ChatGPt the following prompt:
 ```
-Using the following questions as an example, 
-generate a sample of 20 questions regarding 
+The following is an example of (fill in the blank) questions and (T or F), 
+using this format, generate a sample of 20 questions regarding 
 "any topic" 
-without any numeric reference at the beginning of each line, randomly alternate using (T or F) questions or provide one word answers to (fill in the blank) questions.
+without any numeric reference at the beginning of each line, randomly alternate between different types of question.
 
 Most terms in Ballet are from the ______ language (fill in the blank)~french 
 Alton Brown has good recipes (T or F)~T 

@@ -56,7 +56,10 @@ python Quiz.py Geography1.tsv
 
 ## Hint: If you want to create your own Quiz, you can ask ChatGPt the following prompt:
 ```
-Using the following as an example, generate a <20> question file regarding global geography without any numeric reference at the beginning.
+Using the following as an example, 
+generate a sample of 20 questions regarding 
+"global geography" 
+without any numeric reference at the beginning.
 
 Most terms in Ballet are from the ______ language (fill in the blank)~french 
 Alton Brown has good recipes (T or F)~T 

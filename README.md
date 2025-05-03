@@ -49,6 +49,8 @@ pip3 install -r requirements.txt
 ```
 python Quiz.py <name of file> 
 ```
+Example:
+```
 python Quiz.py Geography1.tsv
 ```
 

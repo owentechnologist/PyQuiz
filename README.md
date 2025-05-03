@@ -57,7 +57,7 @@ python Quiz.py Geography1.tsv
 ## Hint: If you want to create your own Quiz, you can ask ChatGPt the following prompt:
 ```
 The following is an example of types of questions. (fill in the blank) questions and (T or F) questions. 
-Using this format, generate a sample of 20 questions regarding 
+Using the format in the following, generate a sample of 20 questions regarding 
 "any topic" 
 without any numeric reference at the beginning of each line, randomly alternate between different types of question.
 

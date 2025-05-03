@@ -46,8 +46,13 @@ psycopg[binary]
 pip3 install -r requirements.txt
 ```
 5. To start the program using a local file, do the following:
+```
 python Quiz.py <name of file> 
 ```
 python Quiz.py Geography1.tsv
 ```
 
+## Hint: If you want to create your own Quiz, you can ask ChatGPt the following prompt:
+```
+Using the following as an example, generate a <20> question file regarding global geography
+```

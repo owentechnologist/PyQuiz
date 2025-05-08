@@ -9,11 +9,13 @@ import psycopg
         ]
     return lines'''
 
-def getlines(usefile, questionFile):
+def getlines(usefile, questionFilename):
     if usefile: 
         # Open the file safely using 'with' so it's closed properly, even if there's an error
-        with open(questionFile) as f:
-            lines = f.readlines()
+        with open(questionFilename) as file:
+            lines = file.readlines()
+            lines = [line.strip() for line in lines if line.strip()]
+
 
     else: 
         connection = connect_to_db()
@@ -31,6 +33,7 @@ def getlines(usefile, questionFile):
         connection.close()
     
     return lines
+
 
 def connect_to_db():
     try:

@@ -1,28 +1,24 @@
 import psycopg 
-#the database driver for postgres(and cockroach)
-'''else: 
-        connection=connect_to_db()
-        # Use a hardcoded fallback list of questions
-        lines = [
-            'Who invented the backwards worm?~Owen',
-            'Who was a powerful landscaper?~Drew'
-        ]
-    return lines'''
+# ^ the database driver for postgres(and cockroach)
 
-def getlines(usefile, questionFilename):
+# the program is called with the name of a file containing the interesting questions to be used
+# Presumably: if usefile is False then the filename is used as a filter when querying a table in a DB
+def getlines(usefile, questionTopic):
     if usefile: 
         # Open the file safely using 'with' so it's closed properly, even if there's an error
+        questionFilename = questionTopic + '.tsv'
         with open(questionFilename) as file:
             lines = file.readlines()
             lines = [line.strip() for line in lines if line.strip()]
-
-
     else: 
         connection = connect_to_db()
         cursor = connection.cursor()
         
         # Query to fetch questions and answers from the Q_and_A table
-        cursor.execute("SELECT question, answer FROM Q_and_A")
+
+        # an even more sophisticated impl allow for vector similarity lookup when appropriate
+        # so that some answers would not have to be exact token/string matches, but rather semantically equivalant
+        cursor.execute("SELECT question, answer FROM Q_and_A join ")
         rows = cursor.fetchall()
         
         # Create a list of strings in the format "question~answer"
@@ -51,3 +47,15 @@ def connect_to_db():
     except Exception as e:
         print("❌ Connection failed:", e)
         return None
+
+'''
+DDL and sample queries for a simple DB schema:
+
+create table topic (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), topic string UNIQUE not null);
+insert into topic(topic) values('mytest');
+create table question_answer (id UUID PRIMARY KEY DEFAULT gen_random_uuid(),topic_id UUID NOT NULL REFERENCES topic (id), question string not null, answer string not null);
+
+with tq AS (select id from topic t where t.topic = 'mytest') insert into question_answer(topic_id,question,answer) SELECT id, 'my testq', 'answer' FROM tq
+select question, answer, topic from question_answer qa JOIN topic t ON t.id = qa.topic_id;
+ 
+'''

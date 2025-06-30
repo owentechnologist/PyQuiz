@@ -2,26 +2,14 @@ from random import shuffle
 import sys
 from Dataaccess import getlines
 
-print('\n\nYour Quiz Starting...\n\nYour args passed in are:')
+print(f'\n\nYour Quiz Starting...\n\nYour args passed in are: {sys.argv}')
 
-argstring=""
-for arg in sys.argv:
-  
-# In the terminal readout, when loading arguments, separated by spaces, 
-# subsequent arguments will be printed in sequence
-  #print (arg)
-  argstring+=arg
-  # because we're in a loop, we repeat
-  # argstring = argstring plus arg 
-  argstring+=", "
-# argstring had to be outside of the loop so that it could grow
-print(argstring)
-
-# we're defining a variable with an empty string that we'll fill later
 questionFile=''
 Filechoice = True
 if (len(sys.argv)==1):
  print('\nsys.argv has length of: %s' % len(sys.argv))
+ # FIXME: rather than default to a file, we should be adjusting for accessing data in a DB
+ # at some point, this could mean using vector similarity and allow for semantic matches rathar than exact token/string match
  questionFile="mytest.tsv"
  #print('You will be tested from questions in the default file: mytest.tsv')
  print('You will receive questions NOT FROM A FILE')
@@ -31,7 +19,7 @@ else:
  questionFile=sys.argv[1]
  print('you asked for questions from the file: %s' % sys.argv[1])
 
-#getlines returns class list of strings which are questions and answers
+#getlines returns class 'list' of strings which are questions and answers
 
 lines = getlines(Filechoice, questionFile)
 
@@ -44,7 +32,6 @@ wrong = []
 numQuestions = int(input("How many questions? "))
 try:
  for line in lines[:numQuestions]:
-  # print(line)
   question, rightAnswer = line.strip().split("~")
   answer = input(question + ' ')
   if answer.upper().strip() == rightAnswer.upper().strip():
